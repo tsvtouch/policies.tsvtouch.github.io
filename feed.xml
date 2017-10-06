@@ -1,0 +1,39 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for obj in site.policy %}
+      {% assign pub_date = (obj.last_amended | default: obj.first_approved) %}
+      {% if pub_date %}
+        <item>
+          <title>{{ obj.title | xml_escape }}</title>
+          <link>{{ obj.url | prepend: site.baseurl | prepend: site.url }}</link>
+          <pubDate>{{ pub_date | date_to_rfc822 }}</pubDate>
+          <guid isPermaLink="true">{{ obj.url | prepend: site.baseurl | prepend: site.url }}</guid>
+          <category>policy</category>
+        </item>
+      {% endif %}
+    {% endfor %}
+    {% for obj in site.position_description %}
+      {% assign pub_date = (obj.last_amended | default: obj.first_approved) %}
+      {% if pub_date %}
+        <item>
+          <title>{{ obj.title | xml_escape }}</title>
+          <link>{{ obj.url | prepend: site.baseurl | prepend: site.url }}</link>
+          <pubDate>{{ obj.last_amended | default: obj.first_approved | date_to_rfc822 }}</pubDate>
+          <guid isPermaLink="true">{{ obj.url | prepend: site.baseurl | prepend: site.url }}</guid>
+          <category>position description</category>
+        </item>
+      {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

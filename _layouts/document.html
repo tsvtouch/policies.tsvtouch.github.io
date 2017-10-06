@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{{ content }}
+
+<h2 id="authorisation">Authorisation</h2>
+
+<p>This document has been authorised by:</p>
+
+<dl class="authorisation">
+  <dt>Approval Authority</dt>
+  <dd>{{ page.approval_authority | default: "&mdash;" }}</dd>
+  <dt>Responsible Officer</dt>
+  <dd>{{ page.responsible_officer | default: "&mdash;" }}</dd>
+  <dt>Date first approved</dt>
+  <dd>{{ page.first_approved | date: "%-d %B %Y" | default: "&mdash;" }}</dd>
+  <dt>Date last amended</dt>
+  <dd>{{ page.last_amended | default: page.first_approved | date: "%-d %B %Y" | default: "&mdash;" }}</dd>
+  <dt>Effective start date</dt>
+  <dd>{{ page.effective_date | default: page.last_amended | default: page.first_approved | date: "%-d %B %Y" | default: "&mdash;" }}</dd>
+  <dt>Date to be reviewed</dt>
+  <dd>{{ page.review_date | date: "%-d %B %Y" | default: "&mdash;" }}</dd>
+</dl>
