@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div>
+    <h1 class="page-heading">Documents</h1>
+
+    <ul>
+      {% for my_page in site.pages %}
+        {% if my_page.title %}
+          <li>
+            <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col">
+    <h1 class="page-heading">Policies</h1>
+
+    <ul>
+      {% for obj in site.policy %}
+        <li>
+            <a href="{{ obj.url | prepend: site.baseurl }}">{{ obj.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="col">
+    <h1 class="page-heading">Position Descriptions</h1>
+
+    <ul>
+      {% for obj in site.position_description %}
+        <li>
+            <a href="{{ obj.url | prepend: site.baseurl }}">{{ obj.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="clearfix">
+    <h1 class="page-heading">Under review</h1>
+
+    <p>The policies listed below have not yet been republished. They are available on the
+    <a href="https://www.internationaltouch.org/resources/" title="Resources">Resources</a>
+    section of the FIT website.</p>
+
+    <ul>
+      <li><a href="https://www.internationaltouch.org/media/old-policies/FIT%20Policy%20and%20Procedures.pdf">Policy and Procedures</a></li>
+      <li><a href="https://www.internationaltouch.org/media/old-policies/Guidelines%20for%20Judiciary%20Hearings%20and%20Appeals.docx">Guidelines for Judiciary Hearings and Appeals</a></li>
+      <li><a href="https://www.internationaltouch.org/media/old-policies/Touring%20Teams%20&amp;%20Individuals.pdf">Procedure and Protocols for the Exchange of Personnel and/or Touring Teams</a></li>
+      <li><a href="https://www.internationaltouch.org/media/old-policies/Hosting%20Federation%20Events.pdf">Hosting Federation Events</a></li>
+      <li><a href="https://www.internationaltouch.org/media/old-policies/Membership%20Criteria%20-%20August%202011.pdf">Membership Criteria</a></li>
+    </ul>
+  </div>
+
+</div>
